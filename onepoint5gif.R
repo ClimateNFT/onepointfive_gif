@@ -26,10 +26,11 @@ dat <- subset(dat,dat$Time < 2021) # haven't finished 2021 yet so chucking it ou
 rm(offset)
 
 # base image
-img1 <- png::readPNG("~/Downloads/Untitled-1.png")
+img1 <- png::readPNG(sprintf("%s/Untitled-1.png",working_dir))
+
+# set colours
 for_colour <- runmed(dat2$Anom_1.5,31) # colour indicator
 fillcol <- ifelse(for_colour >= 1,"DarkRed",ifelse(for_colour >= 0.5,"Orange",ifelse(for_colour >= 0,"Yellow","Green")))
-
 
 # loop through time
 for (i in seq(1850,2020)) {
